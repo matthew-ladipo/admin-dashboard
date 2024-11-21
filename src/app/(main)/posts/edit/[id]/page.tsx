@@ -18,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import posts from "@/app/data/posts";
 import { Button } from "@/components/ui/button";
-import { useToast } from "@/hooks/use-toast";
+// import { useToast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   title: z.string().min(1, {
@@ -40,7 +40,7 @@ interface PostEditPageProps {
 }
 
 const PostsEdit = ({ params }: PostEditPageProps) => {
-  const { toast } = useToast();
+//   const { toast } = useToast();
 
   // Unwrap the `params` promise using `use()`
   const { id } = use(params);
@@ -56,18 +56,19 @@ const PostsEdit = ({ params }: PostEditPageProps) => {
     },
   });
 
-  const handleSubmit = (data: z.infer<typeof formSchema>) => {
-    toast({
-      title: "Post has been updated successfully",
-      description: `Updated by ${post?.author} on ${post?.date}`,
-    });
-  };
+//   const handleSubmit = (data: z.infer<typeof formSchema>) => {
+//     toast({
+//       title: "Post has been updated successfully",
+//       description: `Updated by ${post?.author} on ${post?.date}`,
+//     });
+//   };
 
   return (
     <>
       <h3 className="text-2xl mb-4">Edit Post</h3>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-8">
+        <form 
+         className="space-y-8">
           <FormField
             control={form.control}
             name="title"
