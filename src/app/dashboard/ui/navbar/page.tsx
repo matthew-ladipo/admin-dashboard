@@ -1,3 +1,6 @@
+
+"use client"
+import { useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -8,10 +11,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import ThemeToggler from "../ThemeToggler";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const NavBar = () => {
+ 
   return (
-    <div className="bg-primary dark:bg-slate-700 text-white py-2 px-5 flex justify-between items-center">
+    <div className=" bg-primary dark:bg-slate-700 text-white py-2 px-2  flex justify-between w-full items-center">
       <div className="text-lg font-bold">logo</div>
 
       {/* Hidden on smaller screens, visible on medium and up */}
@@ -34,24 +39,9 @@ const NavBar = () => {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-
-      {/* Menu button for small screens */}
       <div className="md:hidden flex items-center">
         <button className="text-white focus:outline-none">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
+          <RxHamburgerMenu />
         </button>
       </div>
     </div>

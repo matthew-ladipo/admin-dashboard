@@ -4,6 +4,7 @@ const Posts
  = () => {
     return ( 
         <>
+        <p>Posts</p>
         <PostTage />
         </>
      );
