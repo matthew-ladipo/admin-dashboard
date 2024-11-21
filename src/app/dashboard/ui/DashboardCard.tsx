@@ -16,7 +16,7 @@ interface DasnboardProp {
 
 const DashBoardCard = ({ title, count, icon }: DasnboardProp) => {
   return (
-    <Card className="bg-slate-100 dark:bg-slate-800 ">
+    <Card className="bg-gray-100 dark:bg-slate-800 ">
       <div className="flex items-center  px-5 py-2">
         <CardHeader>
           <CardTitle className="text-gray-600">

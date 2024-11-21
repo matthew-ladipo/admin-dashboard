@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "./dashboard/ui/navbar/page";
 import Side from "./dashboard/ui/page";
-
+import { ThemeProvider } from "./provider/ThemeProvider";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -30,13 +30,21 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NavBar />
-        <div className="flex">
-          <div className="  md:block h-[100vh] w-[330px] ">
-            <Side />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          storageKey="dashboard-theme"
+          disableTransitionOnChange
+        >
+          <NavBar />
+          <div className="flex">
+            <div className="  md:block h-full w-[330px] ">
+              <Side />
+            </div>
+            <div className="p-5 w-full md:max-w-[1140px]"> {children}</div>
           </div>
-          <div className="p-5 w-full md:max-w-[1140px]"> {children}</div>
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   );
